@@ -1,3 +1,6 @@
+//THIS IS AN EXAMPLE CODE ONLY DONT COPY 
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
