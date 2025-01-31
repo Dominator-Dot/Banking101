@@ -21,6 +21,8 @@ void deposit();
 void withdraw();
 void fastCash();
 void saveAccount(Customer c);
+void Aboutus();
+
 Customer *findAccount(int accNo);
 
 int main() {
@@ -32,7 +34,8 @@ int main() {
         printf("3. Deposit\n");
         printf("4. Withdraw\n");
         printf("5. Fast Cash\n");
-        printf("6. Exit\n");
+        printf("6.ABout Us\n");
+        printf("7. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -42,7 +45,8 @@ int main() {
             case 3: deposit(); break;
             case 4: withdraw(); break;
             case 5: fastCash(); break;
-            case 6: printf("Exiting...\n"); exit(0);
+            case 6: Aboutus(); break;
+            case 7: printf("Exiting...\n"); exit(0);
             default: printf("Invalid choice! Try again.\n");
         }
     }
@@ -138,6 +142,15 @@ void fastCash() {
     } else {
         printf("Account not found!\n");
     }
+}
+
+void Aboutus(){
+    printf("This is a simple banking system program.\n");
+    printf("It allows you to create accounts, deposit, withdraw, and view account details.\n");
+    printf("It also has a fast cash feature that allows you to withdraw a fixed amount of $100.\n");
+    printf("This program uses a file to store account details.\n");
+    printf("Author: Your Name\n");
+    printf("Date: 01/01/2021\n");
 }
 
 void saveAccount(Customer c) {
