@@ -11,12 +11,13 @@ struct Customer customer[100];
 int countcus = 0;
 
 void createcustomer();
-// void balancein( int accnumber);
+void balancein( int accnumber);
 void display(int accnumber);
-// void fastcash(int accnumber);
-// void desposit(int accnumber);
-// void fund_transfer(int fromnumber);
-// void nor_withdrawal(int accnumber);
+void fastcash(int accnumber);
+void desposit(int accnumber);
+void fund_transfer(int fromnumber);
+void nor_withdrawal(int accnumber);
+// void aboutus();
 int main(){
     int choice, accnumber;
       while(choice !=8){
@@ -39,34 +40,35 @@ int main(){
     case 2:
         printf("Enter your account number");
         scanf("%d",&accnumber);
+        balancein(accnumber);
+        break;
+    case 3:
+        printf("Enter your account number");
+        scanf("%d",&accnumber);
         display(accnumber);
         break;
-    // case 3:
-    //     printf("Enter your account number");
-    //     scanf("%d",&accnumber);
-    //     balancein(accnumber);
-    //     break;
+  
     
-    // case 4:
-    //     printf("Enter your account number");
-    //     scanf("%d",&accnumber);
-    //     fastcash(accnumber);
-    //     break;
-    // case 5:
-    //     printf("Enter your account number");
-    //     scanf("%d",&accnumber);
-    //     desposit(accnumber);
-    //     break;
-    // case 6:
-    //     printf("Enter your account number");
-    //     scanf("%d",&accnumber);
-    //     fund_transfer(accnumber);
-    //     break;
-    // case 7:
-    //     printf("Enter your account number");
-    //     scanf("%d",&accnumber);
-    //     nor_withdrawal(accnumber);
-    //     break;
+    case 4:
+        printf("Enter your account number");
+        scanf("%d",&accnumber);
+        fastcash(accnumber);
+        break;
+    case 5:
+        printf("Enter your account number");
+        scanf("%d",&accnumber);
+        desposit(accnumber);
+        break;
+    case 6:
+        printf("Enter your account number");
+        scanf("%d",&accnumber);
+        fund_transfer(accnumber);
+        break;
+    case 7:
+        printf("Enter your account number");
+        scanf("%d",&accnumber);
+        nor_withdrawal(accnumber);
+        break;
     case 8:
         printf("Now Existing the SYSTEM");
         return 0;
@@ -107,4 +109,116 @@ void display(int accnumber){
         }
     }
     printf("Account not found/n");
+}
+
+void fastcash(int accnumber)
+    {
+    int choose;
+    float withdraw_amt=0;
+
+    for (int i = 0; i < countcus; i++)
+    {
+        if (customer[i].accnumber == accnumber)
+        {
+             printf("Choose the Amount you want to withdraw\n 1.500\n 2.1000\n 3.2000\n 4.3000\n 5.5000\n");
+            scanf("%d", &choose);
+               switch(choose) {
+                           
+                        case 1:
+                            withdraw_amt = 500;
+                            break;
+                        case 2:
+                            withdraw_amt = 1000;
+                            break;
+                        case 3:
+                            withdraw_amt = 2000;
+                            break;
+                        case 4:
+                            withdraw_amt = 3000;
+                            break;
+                        case 5:
+                            withdraw_amt = 5000;
+                            break;
+                        default:
+                            printf("Enter the Number from(1-5)::\n");
+                            return;
+        
+                        }
+                        if (withdraw_amt > customer[i].balance){
+                            printf("Insufficent Balance!!!\n");
+                            }
+             else {
+            customer[i].balance -= withdraw_amt;
+            printf("FastCash Withdrawal Successful!! \n Your Current balance is %.2f",customer[i].balance);
+            } return;
+        } 
+        else{
+    printf("Account not found\n");
+            }   
+        }
+}
+ void desposit(int accnumber)
+
+{ 
+    FILE *fp= fopen("account.txt","a");
+
+    float amount;
+   
+    for (int i = 0; i<countcus; i++)
+    {
+        if(customer[i].accnumber==accnumber)
+        {
+        printf("Enter the amount you want to deposit\n");
+        scanf("%f", &amount);
+
+        customer[i].balance += amount;
+
+
+        printf("The Amount has been successfully added to your account\n");
+        printf("The Current Balance is %.2f",customer[i].balance);
+
+        fprintf(fp,"Rs%f has been Deposited into your account\n",amount);
+
+        }
+        
+
+
+    }
+}
+
+void nor_withdrawal(int accnumber)
+{
+    float amount;
+    for (int i = 0; i < countcus; i++)
+    {
+        if (customer[i].accnumber == accnumber)
+        {
+            printf("Enter the Amount you want to withdraw\n");
+            
+            scanf("%f", &amount);
+
+            if (customer[i].balance >= amount)
+                {
+                customer[i].balance -= amount;
+                printf(" Normal withdrawal successful! New balance: %.2f\n", customer[i].balance);
+                } else{
+                printf("Insufficient balance!\n");
+                 }
+        } else{
+    printf("Account not found\n");
+             }
+    } 
+        
+}   
+
+
+
+
+void balancein(int accnumber)
+{
+}
+
+void fund_transfer(int fromnumber)
+{
+
 }
