@@ -1,7 +1,6 @@
-
 #include <stdio.h>
 
-void transferFunds(double *fromAccount, double *toAccount, double amount) {
+void transferFunds(float *fromAccount, float *toAccount, float amount) {
     if (*fromAccount >= amount) {
         *fromAccount -= amount;
         *toAccount += amount;
@@ -12,9 +11,9 @@ void transferFunds(double *fromAccount, double *toAccount, double amount) {
 }
 
 int main() {
-    double account1 = 1000.0;
-    double account2 = 500.0;
-    double amount = 200.0;
+    float account1 = 1000.0;
+    float account2 = 500.0;
+    float amount = 200.0;
 
     printf("Account 1 balance: %.2f\n", account1);
     printf("Account 2 balance: %.2f\n", account2);
@@ -26,4 +25,3 @@ int main() {
 
     return 0;
 }
-```
