@@ -1,4 +1,6 @@
 #include<stdio.h>
+
+//coded by Prashidhha Raj Sharma// Started
 struct Customer {
     char name[100];
     int accnumber;
@@ -110,6 +112,9 @@ void display(int accnumber){
     }
     printf("Account not found/n");
 }
+//coded by Prasiddha Raj Shamra// Ended
+
+//coded by Rijen Kayastha// Started 
 
 void fastcash(int accnumber)
     {
@@ -180,8 +185,8 @@ void fastcash(int accnumber)
         fprintf(fp,"Rs%f has been Deposited into your account\n",amount);
 
         }
-        
 
+        
 
     }
 }
@@ -207,9 +212,11 @@ void nor_withdrawal(int accnumber)
         } else{
     printf("Account not found\n");
              }
-    } 
+    }
+    
         
-}   
+}  
+//coded by Rijen Kayastha// ended 
 
 
 
