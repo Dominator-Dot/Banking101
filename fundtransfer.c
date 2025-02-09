@@ -1,35 +1,32 @@
-#include <stdio.h>
-
-void transferFunds(float *fromAccount, float *toAccount, float amount)
+void fund_transfer(int fromnumber)
 {
-    if (*fromAccount >= amount)
-    {
-        *fromAccount -= amount;
-        *toAccount += amount;
-        printf("Transfer successful. Transferred %.2f\n", amount);
-    }
-    else
-    {
-        printf("Insufficient funds. Transfer failed.\n");
-    }
-}
-
-int main()
-{
-    float account1 = 1000.0;
-    float account2 = 500.0;
+    int to_accnumber;
     float amount;
-
+    printf("Enter the account number to transfer to: ");
+    scanf("%d", &to_accnumber);
     printf("Enter the amount to transfer: ");
     scanf("%f", &amount);
 
-    printf("Account 1 balance: %.2f\n", account1);
-    printf("Account 2 balance: %.2f\n", account2);
+    int from_index = -1, to_index = -1;
+    for (int i = 0; i < countcus; i++) {
+        if (customer[i].accnumber == fromnumber) {
+            from_index = i;
+        }
+        if (customer[i].accnumber == to_accnumber) {
+            to_index = i;
+        }
+    }
 
-    transferFunds(&account1, &account2, amount);
+    if (from_index == -1 || to_index == -1) {
+        printf("Account number not found.\n");
+        return;
+    }
 
-    printf("Account 1 balance: %.2f\n", account1);
-    printf("Account 2 balance: %.2f\n", account2);
-
-    return 0;
+    if (customer[from_index].balance >= amount) {
+        customer[from_index].balance -= amount;
+        customer[to_index].balance += amount;
+        printf("Transfer successful. Transferred %.2f\n", amount);
+    } else {
+        printf("Insufficient funds. Transfer failed.\n");
+    }
 }
