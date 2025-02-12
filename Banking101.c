@@ -98,21 +98,13 @@ void createcustomer(){
     printf("Client's account added successfully! \n");
 }
 
-void display(int accnumber){
-    for (int i = 0; i < countcus; i++) {
-        if (customer[i].accnumber == accnumber) {
-            printf("\nClient's Account Details\n");
-            printf("Name: %s\n", customer[i].name);
-            printf("Account number: %d\n", customer[i].accnumber);
-            printf("Address: %s\n", customer[i].address);
-            printf("Contact info: %d\n", customer[i].contact_info);
-            printf("Office address: %s\n", customer[i].office_address);
-            printf("Current balance: %.2f\n", customer[i].balance);
-        }
-    }
-    printf("Account not found/n");
-}
+
 //coded by Prasiddha Raj Shamra// Ended
+
+
+
+
+
 
 //coded by Rijen Kayastha// Started 
 
