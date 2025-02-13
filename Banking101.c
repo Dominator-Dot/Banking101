@@ -101,7 +101,7 @@ void createcustomer(){
 
 //coded by Prasiddha Raj Shamra// Ended
 
-//coded by ashish parajuli // Started 
+//coded by Ashish parajuli // Started 
 void display(int accnumber)
 {
     for (int i = 0; i < countcus; i++)
