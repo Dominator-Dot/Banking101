@@ -19,11 +19,11 @@ void fastcash(int accnumber);
 void desposit(int accnumber);
 void fund_transfer(int fromnumber);
 void nor_withdrawal(int accnumber);
-// void aboutus();
+void about_us();
 int main(){
     int choice, accnumber;
       while(choice !=8){
-    printf("\nHello to the new banking system\n");
+    printf("\nHello to the Hamro banking system\n");
     printf("1. NEW CUSTOMER \n");
     printf("2. BALANCE INQUIRY \n");
     printf("3. DISPLAY ACCOUNT DETAILS \n");
@@ -31,7 +31,8 @@ int main(){
     printf("5. DESPOSIT \n");
     printf("6. FUND TRANSFER \n");
     printf("7. STANDARD WITHDRAW \n");
-    printf("8. EXIT \n");
+    printf("8. About Us \n");
+    printf("9. EXIT \n");
     scanf("%d",&choice);
 
     switch (choice)
@@ -72,15 +73,17 @@ int main(){
         nor_withdrawal(accnumber);
         break;
     case 8:
+        about_us();
+        break;
+        case 9:
         printf("Now Existing the SYSTEM");
         return 0;
-    default:
+        default:
         printf("The doesn't recongize this command");
         break;
     } 
     }
-    printf("Existing the system");
-}
+   }
 void createcustomer(){
     printf("Enter the client's name: \n");
     scanf("%s",customer[countcus].name);
@@ -279,3 +282,14 @@ void fund_transfer(int fromnumber)
     }
 }
 //coded by Nhuja Maharjan// Ended
+// coded by Janak Khadka // Started/
+
+void about_us()
+{
+    printf("*****************Welcome to Hamro Banking System***********************\n");
+    printf("**********************Location: Baneshwor,Kathmandu, Nepal********************\n");
+    printf("Hamro Banking System can perform task like BALANCE INQUIRY,DISPLAY ACCOUNT DETAILS,FAST CASH WITHDRAWAL,DESPOSIT many more ");
+    
+}
+//coded by janak Khadka // ended//
+
